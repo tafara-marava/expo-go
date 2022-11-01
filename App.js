@@ -49,13 +49,8 @@ return(
               }
             )
           }}
-        />        
-      </View>
-    )
-  }
-}
-
-<><TextInput
+        /> 
+        <TextInput
   value={tempCode}
   onChangeText={setTempCode}
   style={styles.input2}
@@ -80,7 +75,9 @@ return(
           })
         }
       )
-      console.log(loginResponse.status)
+      console.log("status",loginResponse.status)
+      const logInToken = await loginResponse.text();
+      console.log('login token', loginToken)
       
       if(loginResponse.status == 200){
         const sessionToken = await loginResponse.text();
@@ -91,15 +88,21 @@ return(
         Alert.alert('Warning', 'An invalid Code was entered.')
       }
     } }
-    /> 
+    />        
+      </View>
+    )
+  }
+}
+
+
     //this is where the button ends
 
 
 
-    export default App
+    export default App;
 
 
-    const styles = StyleSheet.create </>;({
+    const styles = StyleSheet.create({
      container:{
          flex:1, 
          alignItems:'center',
