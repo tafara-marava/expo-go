@@ -68,7 +68,7 @@ return(
               }
             )   
             if (sendTextResponse.status!=200){
-              console.log('server send response: '+sendTextResponse.status);
+              console.log('server send text response: '+sendTextResponse.status);
               Alert('Communication Error','Server responded to send text with status:'+sendTextResponse.status)
             }
           }}

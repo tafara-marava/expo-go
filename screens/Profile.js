@@ -25,7 +25,7 @@ const Profile = (props) => {
       setCameraPermission(cameraPermission);
       const userName = AsyncStorage.getItem('userName');
       setUserName(userName)
-      await AsyncStorage.removeItem('profilePhoto')
+      //await AsyncStorage.removeItem('profilePhoto')
       const profilePhoto=await AsyncStorage.getItem('profilePhoto');
       setProfilePhoto(profilePhoto);
     };
@@ -53,8 +53,8 @@ const Profile = (props) => {
             <View style={styles.buttonContainer}>
               {cameraReady?<TouchableOpacity style={styles.button} onPress={async ()=> {
 
-                const picture = await cameraRef.current.takePictureAsync(cameraOptions);
-                console.log('Picture',picture);
+                const picture = await cameraRef.current.takePictureAsync(cameraOptions)
+                console.log('Picture', picture);
                 await AsyncStorage.setItem('profilePhoto',picture.uri);
                 setProfilePhoto(picture.uri);
                 }}>
